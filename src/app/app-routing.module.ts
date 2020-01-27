@@ -1,17 +1,20 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { MainComponent } from './english-bot/main/main.component';
-import { ChatComponent } from './english-bot/chat/chat.component';
-
+import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
+import { MainComponent } from './main/main.component';
+import { ChatComponent } from './chat/chat.component';
 
 const routes: Routes = [
-  { path: "", pathMatch: "full", redirectTo: "main" },
-  { path: "main", component: MainComponent },
-  { path: "chat", component: ChatComponent }
+  { path: '', redirectTo: '/', pathMatch: 'full' },
+  { path: 'main', component: MainComponent },
+  { path: 'chat', component: ChatComponent },
+
+  { path: 'admin', loadChildren: './admin/admin.module#AdminModule' }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    preloadingStrategy: PreloadAllModules
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
