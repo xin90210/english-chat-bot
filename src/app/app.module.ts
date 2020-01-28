@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { EnglishBotModule } from './english-bot.module';
 import { FormsModule } from '@angular/forms';
 import { AdminModule } from './admin/admin.module';
+import { SharedModule } from './admin/shared/components/shared.module';
 // import { AdminLayoutComponent } from './admin/shared/components/admin-layout/admin-layout.component'
 
 @NgModule({
@@ -18,7 +19,8 @@ import { AdminModule } from './admin/admin.module';
     AppRoutingModule,
     EnglishBotModule,
     FormsModule,
-    AdminModule
+    AdminModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
